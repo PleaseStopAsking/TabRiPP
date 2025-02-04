@@ -2,46 +2,48 @@
 
 <img src="images/logo.jpg" alt="TabRiPP Logo" width="300" height="300">
 
+TabRiPP is a simple open-source Python tool to download Guitar Pro tabs (GP5 format) from a Songsterr URL. Now, with a modern GUI and several new features, TabRiPP offers an enhanced user experience for guitarists and music enthusiasts!
 
-A simple Python tool to download  Guitar Pro tabs (GP5 format) from a Songsterr URL. The format works with every never version of Guitar pro
+---
+
+## New Features (v2.0+)
+
+- **Graphical User Interface (GUI):**  
+  A fully featured, modern GUI built with [ttkbootstrap](https://github.com/israel-dryer/ttkbootstrap) featuring a dark red/black color palette and rounded button styles.
+
+- **Multi-Tab Functionality:**  
+  Four tabs in the GUI now provide:
+  - **Songsterr Downloader:** Paste a Songsterr link (ending in `-s<id>`) to download the full Guitar Pro file.
+  - **Drum MIDI Downloader:** Download the Guitar Pro file and extract the drum track as a MIDI file (if available).
+  - **Audio-to-Tab AI (Coming Soon):** A placeholder for an upcoming feature that will convert audio to tablature.
+  - **GPro Preview Player:** Preview downloaded files (both GP and MIDI) using your system’s default application.
+
+- **Enhanced Styling:**  
+  Enjoy a modern, “sexy” look with rounded buttons and a sleek dark red/black theme.
 
 ---
 
 ## Features
 
 - Parses the numeric Songsterr **ID** from a link like:  
-  `https://www.songsterr.com/a/wsa/<some-artist-or-song>-tab-s12345`
+  `https://www.songsterr.com/a/wsa/<artist-or-song>-tab-s12345`
 - Downloads the latest **Guitar Pro** file for that ID.
-- Saves the file to a directory you specify.
+- Extracts drum tracks from the downloaded Guitar Pro file and converts them to MIDI (using pyguitarpro and mido).
+- Provides a GUI to download, preview, and (in the future) convert audio to tablature.
 
 ---
 
 ## Requirements
 
-- Python 3.7+ (though it should work on most modern versions)
-- `requests`
-- `tqdm`
+- **Python 3.7+** (should work on most modern versions)
+- Python packages:
+  - `requests`
+  - `tqdm`
+  - `ttkbootstrap`
+  - `pyguitarpro`
+  - `mido`
 
-Install Python packages (if you haven’t already):
-```bash
-pip install requests tqdm
-```
-
-## Usage
-Clone or copy this repository (and ensure you have the script, e.g. downloader.py).
-Run the script from the command line, specifying the Songsterr link and (optionally) a download directory:
-```bash
-python downloader.py "https://www.songsterr.com/a/wsa/artist-song-tab-s12345" --download-dir .
-```
-The first argument must be the Songsterr link (the one ending in -s<id>).
-Use 
-```bash
---download-dir YOUR_DIRECTORY
-```
- if you want to specify somewhere else to save the file.
-
-Example:
+Install the required packages with:
 
 ```bash
-python downloader.py "https://www.songsterr.com/a/wsa/a-_-tab-s489524" --download-dir "C:/Users/YourName/Desktop/Tabs"
-```
+pip install requests tqdm ttkbootstrap pyguitarpro mido
