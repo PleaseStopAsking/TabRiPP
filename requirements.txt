@@ -1,0 +1,7 @@
+requests
+tqdm
+ttkbootstrap
+pyguitarpro
+mido
+httpx
+beautifulsoup4
